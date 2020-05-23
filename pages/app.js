@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 const App = () => {
   const [users, setUsers] = useState([]);
 
+  const server = process.env.SERVER;
+
   useEffect(() => {
-    fetch("http://localhost:3004/users")
+    fetch(`${server}/users`)
       .then((res) => res.json())
       .then(setUsers);
   }, []);
